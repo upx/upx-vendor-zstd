@@ -11,13 +11,12 @@
 #ifndef ZSTD_ERRORS_H_398273423
 #define ZSTD_ERRORS_H_398273423
 
-#if defined (__cplusplus)
-extern "C" {
-#endif
-
 /*===== dependency =====*/
 #include <stddef.h>   /* size_t */
 
+#if defined (__cplusplus)
+extern "C" {
+#endif
 
 /* =====   ZSTDERRORLIB_API : control library symbols visibility   ===== */
 #ifndef ZSTDERRORLIB_VISIBLE
