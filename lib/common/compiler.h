@@ -54,7 +54,7 @@
 #endif
 
 /* UNUSED_ATTR tells the compiler it is okay if the function is unused. */
-#if defined(__GNUC__)
+#if defined(__clang__) || defined(__GNUC__)
 #  define UNUSED_ATTR __attribute__((unused))
 #else
 #  define UNUSED_ATTR
@@ -93,7 +93,7 @@
  * since this name is used everywhere.
  */
 #ifndef MEM_STATIC  /* already defined in Linux Kernel mem.h */
-#if defined(__GNUC__)
+#if defined(__clang__) || defined(__GNUC__)
 #  define MEM_STATIC static __inline UNUSED_ATTR
 #elif defined (__cplusplus) || (defined (__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L) /* C99 */)
 #  define MEM_STATIC static inline
@@ -181,7 +181,7 @@
  * If you can remove a LIKELY/UNLIKELY annotation without speed changes in gcc
  * and clang, please do.
  */
-#if defined(__GNUC__)
+#if defined(__clang__) || defined(__GNUC__)
 #define LIKELY(x) (__builtin_expect((x), 1))
 #define UNLIKELY(x) (__builtin_expect((x), 0))
 #else
